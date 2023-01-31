@@ -10,6 +10,21 @@
     <title>Weather Do</title>
 </head>
 <body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Check the Weather</h1>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="cityInput" placeholder="Enter a city">
+            </div>
+            <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+          </form>
+          <div class="weather-container mt-3" id="weatherContainer">
+            <!-- Weather information will be displayed here -->
+          </div>
+        </div>
+      </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
