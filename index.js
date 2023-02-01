@@ -1,14 +1,13 @@
 let city = '';
 let eventsObject = [];
-
-
+let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
 
     city = $('#cityInput').val();
     
-    let queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=100&city="+city+"&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
+    let queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=100&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
     
     $.ajax({
         url: queryURL,
@@ -16,8 +15,7 @@ $('#searchBtn').on('click', function(event) {
     })
     .then(function(response) {
         // console.log(response);
-        let eventsArray = response._embedded.events;
-        let eventsObject = [];
+        let eventsArray = response._embedded.events;        
 
         for (let i = 0; i < eventsArray.length; i++) {
             let event = {
@@ -26,7 +24,8 @@ $('#searchBtn').on('click', function(event) {
                 link: eventsArray[i].url
             }
             eventsObject.push(event);
-        }            
+        }
+        console.log(eventsObject);            
         // populateEventDiv(eventsObject);
     });
 });
