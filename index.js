@@ -3,9 +3,12 @@ let eventsObject = [];
 let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
 function populateEventDiv(array) {
+    // id for the container that will hold events
+    $('#eventsContainer').empty();
+
     for (let i = 0; i < array.length; i++) {
         let eventDiv = $(`
-            <div class="events-tiles">
+            <div class="row events-tiles">
                 <h3>${array[i].name}</h3>
                 <h4>${array[i].date}</h4>
                 <a target="_blank" href=${array[i].link}>More details here</a>
@@ -16,7 +19,6 @@ function populateEventDiv(array) {
         
     }
 }
-
 
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
@@ -41,7 +43,7 @@ $('#searchBtn').on('click', function(event) {
             }
             eventsObject.push(event);
         }
-        console.log(eventsObject);            
+        // console.log(eventsObject);            
         populateEventDiv(eventsObject);
     });
 });
