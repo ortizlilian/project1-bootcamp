@@ -2,12 +2,28 @@ let city = '';
 let eventsObject = [];
 let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
+function populateEventDiv(array) {
+    for (let i = 0; i < array.length; i++) {
+        let eventDiv = $(`
+            <div class="events-tiles">
+                <h3>${array[i].name}</h3>
+                <h4>${array[i].date}</h4>
+                <a target="_blank" href=${array[i].link}>More details here</a>
+            </div>
+        `);
+        // tested in weather container, but it needs to be inside event container
+        $('#weatherContainer').append(eventDiv);
+        
+    }
+}
+
+
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
 
     city = $('#cityInput').val();
     
-    let queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=100&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
+    let queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=10&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
     
     $.ajax({
         url: queryURL,
@@ -26,7 +42,7 @@ $('#searchBtn').on('click', function(event) {
             eventsObject.push(event);
         }
         console.log(eventsObject);            
-        // populateEventDiv(eventsObject);
+        populateEventDiv(eventsObject);
     });
 });
 
