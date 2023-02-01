@@ -1,0 +1,100 @@
+*{
+    padding: 10;
+    margin: 10;
+    font-family: futura;
+    box-sizing: border-box;
+
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar-brand {
+  font-size: 42px;
+  letter-spacing: 2px;
+  color: #92D100 !important;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+  margin-left: 115px;
+}
+span {
+  color: #92D100 !important;
+}
+
+.customNav{
+  position: absolute;
+  width: 100%;
+  background-color: transparent !important;
+  background-size: cover;
+  z-index: 10;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: 0 !important;
+}
+
+.nav-item {
+    margin: 0px 15px;
+  }
+
+  a .btn  {
+    background-color: #92D100 !important;
+  }
+
+  .dropdown-menu {
+    background-color: transparent !important;
+    background-size: cover;
+  }
+
+  .dropdown-item:focus, .dropdown-item:hover {
+      color: #92D100 !important;
+      text-decoration: none;
+  }  
+
+  .dropdown-menu {
+    left: -97px;
+  }
+
+.jumbotron {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  
+
+  .city form {
+    width: 380px;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .city input:first-child {
+    display: inline-block;
+    width: 100%;
+    padding: 14px 130px 14px 15px;
+    border: 2px solid #92D100;
+    outline: none;
+    border-radius: 30px;
+  }
+
+  .city input:last-child {
+    background-color: #0245C2;
+    position: absolute;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    padding: 1px 30px;
+    color: #bdbaba;
+    top: 6px;
+    right: 6px;
+}
+.city input:last-child:hover {
+  background-color: #BF8D84;
+  color: #92D100;
+}
