@@ -2,6 +2,14 @@ let city = '';
 let eventsObject = [];
 let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
+function removeDuplicate(array) {
+    let fiveEvents = [];
+    while (condition) {
+        
+    }
+    return fiveEvents;
+}
+
 function populateEventDiv(array) {
     // id for the container that will hold events
     $('#eventsContainer').empty();
