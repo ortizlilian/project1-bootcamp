@@ -26,9 +26,23 @@ function populateEventDiv(array) {
             </div>
         `);
         // tested in weather container, but it needs to be inside event container
-        $('#weatherContainer').append(eventDiv);
+        $('#eventsContainer').append(eventDiv);
         
     }
+}
+
+function populateWeatherDiv(city, date, temp, weather) {
+    $('#weatherContainer').empty();
+
+    let weatherDiv = $(`
+        <div class="weather-tile">
+            <h3>${city}</h3>
+            <h4>${date}</h4>            
+            <img src="http://openweathermap.org/img/wn/${weather}@2x.png" alt="Weather Icon" width="50px" height="50px">
+            <h4>${parseInt(temp)}°C</h4>
+        </div>
+    `);
+    $('#weatherContainer').append(weatherDiv);
 }
 
 $('#searchBtn').on('click', function(event) {
@@ -60,8 +74,11 @@ $('#searchBtn').on('click', function(event) {
         .then(function(response) {
             console.log(response);
 
-            let currentDay = moment().format("DD/M/YYYY");
-            let currentTemp = response.main.temp;
+            let date = moment().format("Do MMMM");
+            let temp = response.main.temp;
+            let weather = response.weather[0].icon;
+
+            populateWeatherDiv(city, date, temp, weather);
 
         });
     }); 
