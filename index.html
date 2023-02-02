@@ -7,10 +7,69 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <title>Day Off</title>
+    
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+
+    <title>Weather Do</title>
 </head>
 <body>
-    <section>
+
+  <!--NavBar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light customNav">
+    <a class="navbar-brand" href="#">Welcome<span> to Your New Evenet</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="events">Events</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">More</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="about">Outdoors</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Indoors</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Contact Us</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-lg navCTA" href="#" role="button">Switch</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<!--Jumbotron-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">City</h1>
+          <div class="city">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" id="cityInput" placeholder="Enter your city">
+              <input type="submit" name="submit" value="Search">
+            </div>
+          </form>
+        </div>
+          <div class="weather-container mt-3" id="weatherContainer">
+            <!-- Weather information will be displayed here -->
+          </div>
+        </div>
+      </div>
+      
+      <section>
         <div  class="leftbox">
             <div class="content">
                 <h1>Events and shows</h1>
@@ -52,6 +111,7 @@
             </ul>
         </div>
     </section>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="index.js"></script>
