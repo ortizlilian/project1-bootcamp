@@ -62,6 +62,7 @@ $('#searchBtn').on('click', function(event) {
 
             let currentDay = moment().format("DD/M/YYYY");
             let currentTemp = response.main.temp;
+
         });
     }); 
     
