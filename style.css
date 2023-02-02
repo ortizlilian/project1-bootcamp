@@ -1,3 +1,5 @@
+
+=======
 *{
     padding: 10;
     margin: 10;
@@ -117,4 +119,18 @@ span {
 .city input:last-child:hover {
   background-color: #e91e63;
   color: rgb(64, 59, 77);
+}
+
+  section {
+    display: flex;
+    flex-direction: column;
+}
+.leftbox {
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
+}
+.events {
+    margin-top: 20px;
+    width: 50%;
 }
