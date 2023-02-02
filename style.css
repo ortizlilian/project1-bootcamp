@@ -1,5 +1,4 @@
 
-=======
 *{
     padding: 10;
     margin: 10;
@@ -133,4 +132,9 @@ span {
 .events {
     margin-top: 20px;
     width: 50%;
+}
+.righbox{
+  display:flex;
+  align-items: flex-start;
+  width:30%;
 }
