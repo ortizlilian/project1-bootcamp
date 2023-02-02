@@ -35,11 +35,42 @@ $('#searchBtn').on('click', function(event) {
     event.preventDefault();
 
     city = $('#cityInput').val();
+
+    // WEATHER API CALL
+    let queryGeoURL = "https://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=5&appid=3b515d44aff736d8b6cbd98468bd1dfb";
+
+    // First api call, used to get data to trigger second api call (the one that
+    // returns the actual weather data)
+    $.ajax({
+        url: queryGeoURL,
+        method: "GET"
+    })
+    .then(function(response) {
+        let lat = response[0].lat;            
+        let lon = response[0].lon;
+
+        // Api endpoint that returns current weather
+        let queryWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=3b515d44aff736d8b6cbd98468bd1dfb";
+
+        // Ajax api call that returns current weather data
+        $.ajax({
+            url: queryWeatherURL,
+            method: "GET"
+        })
+        .then(function(response) {
+            console.log(response);
+
+            let currentDay = moment().format("DD/M/YYYY");
+            let currentTemp = response.main.temp;
+        });
+    }); 
     
-    let queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=10&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
+
+    // EVENTS API CALL
+    let queryEventURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=10&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
     
     $.ajax({
-        url: queryURL,
+        url: queryEventURL,
         method: "GET"
     })
     .then(function(response) {
