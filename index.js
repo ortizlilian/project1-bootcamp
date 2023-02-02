@@ -2,13 +2,16 @@ let city = '';
 let eventsObject = [];
 let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
-function removeDuplicate(array) {
-    let fiveEvents = [];
-    while (condition) {
-        
-    }
-    return fiveEvents;
-}
+// function removeDuplicate(array) {
+//     let fiveEvents = [];
+//     let i = 0;
+//     while (fiveEvents.length < 11) {
+//         if (fiveEvents.name.includes(array[i].name) != true) {
+//             fiveEvents.push(array[i]);
+//             i++;
+//         } else i++;
+//     } return fiveEvents;
+// }
 
 function populateEventDiv(array) {
     // id for the container that will hold events
