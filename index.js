@@ -2,13 +2,16 @@ let city = '';
 let eventsObject = [];
 let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
-function removeDuplicate(array) {
-    let fiveEvents = [];
-    while (condition) {
-        
-    }
-    return fiveEvents;
-}
+// function removeDuplicate(array) {
+//     let fiveEvents = [];
+//     let i = 0;
+//     while (fiveEvents.length < 11) {
+//         if (fiveEvents.name.includes(array[i].name) != true) {
+//             fiveEvents.push(array[i]);
+//             i++;
+//         } else i++;
+//     } return fiveEvents;
+// }
 
 function populateEventDiv(array) {
     // id for the container that will hold events
@@ -23,20 +26,69 @@ function populateEventDiv(array) {
             </div>
         `);
         // tested in weather container, but it needs to be inside event container
-        $('#weatherContainer').append(eventDiv);
+        $('#eventsContainer').append(eventDiv);
         
     }
+}
+
+function populateWeatherDiv(city, date, temp, weather) {
+    $('#weatherContainer').empty();
+
+    let weatherDiv = $(`
+        <div class="weather-tile">
+            <h3>${city}</h3>
+            <h4>${date}</h4>            
+            <img src="http://openweathermap.org/img/wn/${weather}@2x.png" alt="Weather Icon" width="50px" height="50px">
+            <h4>${parseInt(temp)}°C</h4>
+        </div>
+    `);
+    $('#weatherContainer').append(weatherDiv);
 }
 
 $('#searchBtn').on('click', function(event) {
     event.preventDefault();
 
     city = $('#cityInput').val();
+
+    // WEATHER API CALL
+    let queryGeoURL = "https://api.openweathermap.org/geo/1.0/direct?q="+city+"&limit=5&appid=3b515d44aff736d8b6cbd98468bd1dfb";
+
+    // First api call, used to get data to trigger second api call (the one that
+    // returns the actual weather data)
+    $.ajax({
+        url: queryGeoURL,
+        method: "GET"
+    })
+    .then(function(response) {
+        let lat = response[0].lat;            
+        let lon = response[0].lon;
+
+        // Api endpoint that returns current weather
+        let queryWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=3b515d44aff736d8b6cbd98468bd1dfb";
+
+        // Ajax api call that returns current weather data
+        $.ajax({
+            url: queryWeatherURL,
+            method: "GET"
+        })
+        .then(function(response) {
+            console.log(response);
+
+            let date = moment().format("Do MMMM");
+            let temp = response.main.temp;
+            let weather = response.weather[0].icon;
+
+            populateWeatherDiv(city, date, temp, weather);
+
+        });
+    }); 
     
-    let queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=10&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
+
+    // EVENTS API CALL
+    let queryEventURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=10&city="+city+"&startDateTime="+yesterdayDate+"T00:00:00Z&sort=date,name,asc&apikey=XyowdfVyO9oj0crWA29ukrAYd3lUxIdS"
     
     $.ajax({
-        url: queryURL,
+        url: queryEventURL,
         method: "GET"
     })
     .then(function(response) {
