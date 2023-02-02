@@ -1,0 +1,120 @@
+*{
+    padding: 10;
+    margin: 10;
+    font-family: futura;
+    box-sizing: border-box;
+
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.customNav{
+  position: absolute;
+  width: 100%;
+  background-color: rgb(64, 59, 77) !important;
+  background-size: cover;
+  z-index: 10;
+}
+
+.navbar-brand {
+  font-size: 42px;
+  color: #a0a0a0 !important;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+  margin-left: 115px;
+}
+
+span {
+  color: #e91e63;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 0 !important;
+}
+
+.nav-link {
+  color: #e91e63 !important;
+}
+
+.nav-item {
+    margin: 0px 15px;
+  }
+
+  .dropdown-menu {
+    background-color: #e91e63 !important;
+    background-size: cover;
+  }
+
+  .dropdown-item:focus, .dropdown-item:hover {
+      background-color: rgb(64, 59, 77) !important;
+      color:#e91e63;
+  }  
+
+  .dropdown-menu {
+    left: -97px;
+  }
+
+  .btn {
+    background-color: rgb(64, 59, 77) !important;
+      border-radius: 30px;
+      color: #e91e63;
+      padding: 5px 15px;
+      font-size: 18px;
+      border-color: #e91e63;
+  }
+
+  .btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #e91e63 !important;
+    border: 4px solid;
+    border-style: inset;
+  }
+
+.jumbotron {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .container {
+    margin-top: 300px;
+    margin-left: 100px;
+  }
+
+  .city form {
+    width: 380px;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .city input:first-child {
+    display: inline-block;
+    width: 100%;
+    border: 2px solid #e91e63;
+    outline: none;
+    border-radius: 30px;
+    padding: 14px;
+  }
+
+  .city input:last-child {
+    background-color: rgb(64, 59, 77);
+    border-color: #e91e63;
+    border: none;
+    position: absolute;
+    display: inline-block;
+    border-radius: 30px;
+    padding: 1px 30px;
+    color: #e91e63;
+    top: 6px;
+    right: 6px;
+}
+.city input:last-child:hover {
+  background-color: #e91e63;
+  color: rgb(64, 59, 77);
+}
