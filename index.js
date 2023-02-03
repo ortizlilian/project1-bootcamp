@@ -19,15 +19,19 @@ function populateEventDiv(array) {
 
     for (let i = 0; i < array.length; i++) {
         let eventDiv = $(`
-            <div class="row events-tiles">
-                <h3>${array[i].name}</h3>
-                <h4>${array[i].date}</h4>
-                <a target="_blank" href=${array[i].link}>More details here</a>
-            </div>
+            <a class="events-links" target="_blank" href=${array[i].link}>
+                <div class="row events-tiles">
+                    <div class="col-2">
+                        <p>${moment(array[i].date, 'YYYY-MM-DD').format('Do')}</p>
+                        <p>${moment(array[i].date, 'YYYY-MM-DD').format('MMM')}</p>
+                    </div>
+                    <div class="col-10">
+                        <p>${array[i].name}</p>
+                    </div>
+                </div>
+            </a>              
         `);
-        // tested in weather container, but it needs to be inside event container
         $('#eventsContainer').append(eventDiv);
-        
     }
 }
 
@@ -35,11 +39,11 @@ function populateWeatherDiv(city, date, temp, weather) {
     $('#weatherContainer').empty();
 
     let weatherDiv = $(`
-        <div class="weather-tile">
-            <h3>${city}</h3>
-            <h4>${date}</h4>            
-            <img src="http://openweathermap.org/img/wn/${weather}@2x.png" alt="Weather Icon" width="50px" height="50px">
-            <h4>${parseInt(temp)}°C</h4>
+        <div class="weather-tile row" style="background-color: red; display: flex-end">
+            <p>${city}</p>
+            <p>${date}</p>            
+            <img src="http://openweathermap.org/img/wn/${weather}@4x.png" alt="Weather Icon" width="50px" height="50px">
+            <p>${parseInt(temp)}°C</p>
         </div>
     `);
     $('#weatherContainer').append(weatherDiv);
