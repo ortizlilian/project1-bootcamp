@@ -76,6 +76,7 @@ span {
 
 .jumbotron {
     background-size: cover;
+    background-image: url(./imgs/dayoff2.png);
     background-repeat: no-repeat;
     height: calc(100vh - 70px);
     display: flex;
