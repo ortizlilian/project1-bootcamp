@@ -14,40 +14,36 @@
 
     <title>Day Off</title>
   </head>
-<body>
 
-  <!--NavBar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light customNav">
-    <a class="navbar-brand" href="#">Welcome<span> to Your New Evenet</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="events">Events</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">More</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="about">Outdoors</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Indoors</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Contact Us</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-lg navCTA" href="#" role="button">Switch</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <body>
+  
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light customNav">
+      <a class="navbar-brand" href="#">Welcome<span> to Your Weather & Events Dashboard</span></a>
+      
+      <!-- Form placed into navbar as substitute for form that first appears in jumbotron -->
+      <form class="form-inline d-none formulario-top">
+        <input class="form-control mr-sm-2" id="cityInput2" required type="search" placeholder="Write your city and hit enter" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn2" hidden></button>
+      </form>
+      
+      <!-- Toggle button for responsive design, it contains the cities saved to Local Storage -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Collapsable navbar that displays the city names saved to Local Storage -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">       
+        <ul class="navbar-nav mr-auto">          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cities</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+          </li>
+        </ul>      
+      </div>
+
+    </nav>
+    
 <!--Jumbotron-->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
