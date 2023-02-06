@@ -82,6 +82,8 @@ span {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    padding-top: 20% !important;
+    padding-bottom: 20% !important;
   }
 
   .container {
@@ -142,4 +144,20 @@ span {
 }
 .container{
   display: flex;
+}
+
+#eventsContainer, #excusesContainer {
+  margin-top: 2rem;
+}
+
+.events-tiles {
+  background-color: dimgray;
+  border: black;
+  margin: 10px;
+  color: black;
+}
+
+.events-tiles:hover {
+  text-decoration: none;
+  background-color: yellow;
 }
