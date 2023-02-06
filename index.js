@@ -191,12 +191,12 @@ $('#searchBtn, #searchBtn2').on('click', function(event) {
 // JUMBOTRON BACKGROUND IMAGE
 let i = 0;
 let images = [
-    "img/concert1.jpg",
-    "img/concert2.jpg",
-    "img/theater1.jpg",
-    "img/theater2.jpg",
-    "img/conference1.jpg",
-    "img/conference2.jpg"
+    "imgs/concert1.jpg",
+    "imgs/concert2.jpg",
+    "imgs/theater1.jpg",
+    "imgs/theater2.jpg",
+    "imgs/conference1.jpg",
+    "imgs/conference2.jpg"
 ];
 
 // Change the image
