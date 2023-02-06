@@ -3,7 +3,10 @@ let eventsObject = [];
 let yesterdayDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
 let cityArray = [];
 
-//
+function start() {
+    cityArray = JSON.parse(localStorage.getItem('cityArray')) || [];
+    createCitiesShortcuts(cityArray);
+}
 
 function createCitiesShortcuts(array) {
     $('.dropdown-menu').empty();
@@ -210,4 +213,4 @@ function changeImg() {
 
 window.onload = changeImg;
 
-//
+start();
