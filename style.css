@@ -195,3 +195,24 @@ span {
   font-size: 1.5em;
 }
 
+#excusesContainer > p:first-of-type {
+  font-size: 1.25rem;
+  text-align: center;
+  text-shadow: 1px 1px rgb(0 0 0 / 70%);
+  color: #e91e63;
+}
+
+#excusesContainer :nth-child(2) {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: larger;
+  font-style: italic;
+  text-align: center;
+}
+
+#excusesContainer :nth-child(3) {
+  margin-top: 3rem;
+  font-size: 2rem;
+  font-style: bold;
+  text-align: center;
+}

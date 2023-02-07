@@ -106,8 +106,8 @@ function eventsApiCall(city, yesterdayDate) {
         
         if (response.page.totalElements == 0) {
 
-            eventsObject = [];
             $('#eventsContainer').empty();
+            eventsObject = [];
             $('#eventsContainer').append(`<p>No events for this city <br> Try another one 😊</p>`);
 
         } else {
