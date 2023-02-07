@@ -85,7 +85,7 @@ function populateExcuseDiv(array) {
     $('#excusesContainer').empty();
     let containerTitle = $(`
         <p>Need to get away from someone?</p>
-        <p>Give them a excuse</p>
+        <p>Give them a excuse 😉</p>
     `);
     let excuseDiv = $(`           
         <p>${array[0].excuse}</p>           
