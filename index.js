@@ -103,18 +103,27 @@ function eventsApiCall(city, yesterdayDate) {
         method: "GET"
     })
     .then(function(response) {
+        
+        if (response.page.totalElements == 0) {
 
-        let eventsArray = response._embedded.events;
-        eventsObject = [];       
+            eventsObject = [];
+            $('#eventsContainer').empty();
+            $('#eventsContainer').append(`<p>No events for this city <br> Try another one 😊</p>`);
 
-        for (let i = 0; i < eventsArray.length; i++) {
-            let event = {
-                name: eventsArray[i].name,
-                date: eventsArray[i].dates.start.localDate,
-                link: eventsArray[i].url
-            }
-            eventsObject.push(event);
-        }                      
+        } else {
+
+            let eventsArray = response._embedded.events;
+            eventsObject = [];       
+
+                for (let i = 0; i < eventsArray.length; i++) {
+                    let event = {
+                        name: eventsArray[i].name,
+                        date: eventsArray[i].dates.start.localDate,
+                        link: eventsArray[i].url
+                    }
+                    eventsObject.push(event);
+                }            
+        }
         
         populateEventDiv(eventsObject);
     });
@@ -201,7 +210,10 @@ let images = [
 
 // Change the image
 function changeImg() {
-    $('.jumbotron').css("background-image", "url(" + images[i] + ")");
+    $('.jumbotron').css({
+                        "background-image": "url(" + images[i] + ")",
+                        "transition": "2s"
+                        });
 
     if (i < images.length - 1) {
         i++;
