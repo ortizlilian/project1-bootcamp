@@ -1,167 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
+
+    <title>Day Off</title>
+  </head>
+
+  <body>
   
-
-    <title>Weather Do</title>
-</head>
-<body>
-
-  <!--NavBar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light customNav">
-    <a class="navbar-brand" href="#">Welcome<span> to Your New Evenet</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="events">Events</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">More</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="about">Outdoors</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Indoors</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Contact Us</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-lg navCTA" href="#" role="button">Switch</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-<!--Jumbotron-->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">City</h1>
-          <div class="city">
-          <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="cityInput" placeholder="Enter your city">
-              <input type="submit" name="submit" value="Search">
-            </div>
-          </form>
-          </div>
-          <div class="weather-container mt-3" id="weatherContainer">
-            <!-- Weather information will be displayed here -->
-          </div>
-        </div>
-    </div>
-      <div class="container-fluid">
-        <div class="content">
-                <h1>Events and shows</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates velit sequi eos cum illo est aliquid rem ea? Quisquam reprehenderit impedit aliquam aliquid dolor a vel ea autem enim harum.</p>
-        </div>
-        
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light customNav">
+      <a class="navbar-brand" href="#">Welcome<span> to Your Weather & Events Dashboard</span></a>
+      
+      <!-- Form placed into navbar as substitute for form that first appears in jumbotron -->
+      <form class="form-inline d-none formulario-top">
+        <input class="form-control mr-sm-2" id="cityInput2" required type="search" placeholder="Write your city and hit enter" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn2" hidden></button>
+      </form>
+      
+      <!-- Toggle button for responsive design, it contains the cities saved to Local Storage -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Collapsable navbar that displays the city names saved to Local Storage -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">       
+        <ul class="navbar-nav mr-auto">          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cities</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown"></div>
+          </li>
+        </ul>      
       </div>
-      <div class="container">
-      <section class="topleft">
-        <!-- <div  class="leftbox">
-            <div class="content">
-                <h1>Events and shows</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates velit sequi eos cum illo est aliquid rem ea? Quisquam reprehenderit impedit aliquam aliquid dolor a vel ea autem enim harum.</p>
-            </div>
-        </div> -->
-        <div class="events">
-            <ul>
-                <li>
-                    <div class="time">
-                        <h2>1<br><span>February</span></h2>
-                    </div>
-                    <div class="details">
-                        <h3>What`s on</h3>                        
-                    </div>
-                </li>
-                <li>
-                    <div class="time">
-                        <h2>1<br><span>February</span></h2>
-                    </div>
-                    <div class="details">
-                        <h3>What`s on</h3>                       
-                    </div>
-                </li>
-                <li>
-                    <div class="time">
-                        <h2>1<br><span>February</span></h2>
-                    </div>
-                    <div class="details">
-                        <h3>What`s on</h3>                       
-                    </div>
-                </li>
-                <li>
-                  <div class="time">
-                      <h2>1<br><span>February</span></h2>
-                  </div>
-                  <div class="details">
-                      <h3>What`s on</h3>                       
-                  </div>
-              </li>
-              <li>
-                  <div class="time">
-                      <h2>1<br><span>February</span></h2>
-                  </div>
-                  <div class="details">
-                      <h3>What`s on</h3>                       
-                  </div>
-              </li>
-            </ul>
-        </div>
-      </section>      
-      <section class="topright">    
-          <div class="excuses">
-                <ul>
-                    <li>                 
-                        <div class="exc1">
-                            <h3>Excuse 1</h3>                        
-                        </div>
-                    </li>
-                    <li>
-                        <div class="exc2">
-                            <h3>Excuse 2</h3>                       
-                        </div>
-                    </li>
-                    <li>                  
-                        <div class="exc3">
-                            <h3>Excuse 3</h3>                       
-                        </div>
-                    </li>
-                    <li>                  
-                        <div class="exc4">
-                            <h3>Excuse 4</h3>                       
-                        </div>
-                    </li>
-                    <li>                  
-                        <div class="exc5">
-                            <h3>Excuse 5</h3>                       
-                        </div>
-                    </li>
-                </ul>
-      </div>
-      </section>
+
+    </nav>
+    
+    <!--Jumbotron-->  
+    <div class="jumbotron jumbotron-fluid" id="jumbotron">
+      <div class="container" id="weatherContainer">           
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="cityInput" required placeholder="Write your city and hit enter">
+            <input type="submit" name="submit" value="Search" id="searchBtn" hidden>
+          </div>
+        </form>
+      </div>          
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>    
+  
+    <!-- Container below jumbotron (events and excuses) -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-7" id="eventsContainer"></div>
+        <div class="col-5" id="excusesContainer"></div>
+      </div>
+    </div>
+
+
+    <!--JQuery/Popper.js/Bootstrap/Moment.js/-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script> 
     <script src="index.js"></script>
-</body>
+
+  </body>
+  
 </html>
