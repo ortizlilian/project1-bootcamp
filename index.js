@@ -85,7 +85,7 @@ function populateExcuseDiv(array) {
     $('#excusesContainer').empty();
     let containerTitle = $(`
         <p>Need to get away from someone?</p>
-        <p>Give them a excuse</p>
+        <p>Give them a excuse 😉</p>
     `);
     let excuseDiv = $(`           
         <p>${array[0].excuse}</p>           
@@ -103,18 +103,27 @@ function eventsApiCall(city, yesterdayDate) {
         method: "GET"
     })
     .then(function(response) {
+        
+        if (response.page.totalElements == 0) {
 
-        let eventsArray = response._embedded.events;
-        eventsObject = [];       
+            $('#eventsContainer').empty();
+            eventsObject = [];
+            $('#eventsContainer').append(`<p>No events for this city <br> Try another one 😊</p>`);
 
-        for (let i = 0; i < eventsArray.length; i++) {
-            let event = {
-                name: eventsArray[i].name,
-                date: eventsArray[i].dates.start.localDate,
-                link: eventsArray[i].url
-            }
-            eventsObject.push(event);
-        }                      
+        } else {
+
+            let eventsArray = response._embedded.events;
+            eventsObject = [];       
+
+                for (let i = 0; i < eventsArray.length; i++) {
+                    let event = {
+                        name: eventsArray[i].name,
+                        date: eventsArray[i].dates.start.localDate,
+                        link: eventsArray[i].url
+                    }
+                    eventsObject.push(event);
+                }            
+        }
         
         populateEventDiv(eventsObject);
     });
@@ -201,7 +210,10 @@ let images = [
 
 // Change the image
 function changeImg() {
-    $('.jumbotron').css("background-image", "url(" + images[i] + ")");
+    $('.jumbotron').css({
+                        "background-image": "url(" + images[i] + ")",
+                        "transition": "2s"
+                        });
 
     if (i < images.length - 1) {
         i++;

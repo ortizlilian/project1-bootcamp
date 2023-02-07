@@ -150,17 +150,73 @@ span {
   margin-top: 2rem;
 }
 
-.events-tiles {
-  background-color: dimgray;
-  border: black;
-  margin: 10px;
-  color: black;
+#eventsContainer > p {
+  font-size: 1.25rem;
+  text-align: center;
+  text-shadow: 1px 1px rgb(0 0 0 / 70%);
+  color: #e91e63;
 }
 
-.events-tiles:hover {
-  text-decoration: none;
-  background-color: yellow;
+.events-tiles {
+  margin: 10px;
 }
+
+.events-tiles > .col-2 {
+  background-color: #e91e63;
+  font-size: larger;
+  color: white;
+  font-family: futura;
+}
+
+.col-2 > p:first-of-type {
+  margin-bottom: -5px;
+  margin-top: 1rem;
+}
+
+.col-10 {
+  background-color: #a0a0a0;
+  font-size: larger;
+  color: black;
+  font-family: futura;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-10 p {
+  -webkit-transition: font-size .5s ease;
+  -moz-transition: font-size .5s ease;
+  -o-transition: font-size .5s ease;
+  transition: font-size .5s ease;
+  text-decoration: none;
+}
+
+.col-10 p:hover {  
+  font-size: 1.5em;
+}
+
+#excusesContainer > p:first-of-type {
+  font-size: 1.25rem;
+  text-align: center;
+  text-shadow: 1px 1px rgb(0 0 0 / 70%);
+  color: #e91e63;
+}
+
+#excusesContainer :nth-child(2) {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: larger;
+  font-style: italic;
+  text-align: center;
+}
+
+#excusesContainer :nth-child(3) {
+  margin-top: 3rem;
+  font-size: 2rem;
+  font-style: bold;
+  text-align: center;
+}
+
 footer {
   background:#212529;
   padding: 10px 0;
