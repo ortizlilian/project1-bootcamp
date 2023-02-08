@@ -20,18 +20,7 @@
   
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light customNav">
-      <a class="navbar-brand" href="#">Welcome<span> to Your Weather & Events Dashboard</span></a>
-      
-      <!-- Form placed into navbar as substitute for form that first appears in jumbotron -->
-      <form class="form-inline d-none formulario-top">
-        <input class="form-control mr-sm-2" id="cityInput2" required type="search" placeholder="Write your city and hit enter" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn2" hidden></button>
-      </form>
-      
-      <!-- Toggle button for responsive design, it contains the cities saved to Local Storage -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand" href="javascript:window.location.reload()">Welcome<span> to Day Off</span></a>
       
       <!-- Collapsable navbar that displays the city names saved to Local Storage -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">       
@@ -42,15 +31,26 @@
           </li>
         </ul>      
       </div>
-
-    </nav>
+      
+      <!-- Form placed into navbar as substitute for form that first appears in jumbotron -->
+      <form class="form-inline d-none" id="top-form">
+        <input class="form-control mr-sm-2" id="cityInput2" required type="search" placeholder="Write a city and hit enter" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn2" hidden></button>
+      </form>
+      
+      <!-- Toggle button for responsive design, it contains the cities saved to Local Storage -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     
+    </nav>    
+            
     <!--Jumbotron-->  
     <div class="jumbotron jumbotron-fluid" id="jumbotron">
       <div class="container" id="weatherContainer">           
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" id="cityInput" required placeholder="Write your city and hit enter">
+            <input type="text" class="form-control" id="cityInput" required placeholder="Write a city and hit enter">
             <input type="submit" name="submit" value="Search" id="searchBtn" hidden>
           </div>
         </form>
@@ -64,13 +64,15 @@
         <div class="col-5" id="excusesContainer"></div>
       </div>
     </div>
-<!-- Footer with icons-->
+
+    <!-- Footer with icons-->
     <footer>
       <a href="#"><i class="fa fa-facebook"></i></a>
       <a href="#"><i class="fa fa-twitter"></i></a>
       <a href="#"><i class="fa fa-linkedin"></i></a>
       <a href="#"><i class="fa fa-github"></i></a>
     </footer>
+
     <!--JQuery/Popper.js/Bootstrap/Moment.js/-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
