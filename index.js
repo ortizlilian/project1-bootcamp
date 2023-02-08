@@ -24,7 +24,6 @@ function createCitiesShortcuts(array) {
 
         $('#cityInput, #cityInput2').val(click);
         $('#searchBtn, #searchBtn2').trigger("click");
-        $('#cityInput, #cityInput2').val('');
     });
 }
 
@@ -38,13 +37,13 @@ function storeCity(city) {
 
 function populateWeatherDiv(city, day, month, temp, weather) { 
     let weatherDiv = $(`
-        <div class="weather-tile" style="background-color: red; display: flex; justify-content: space-around; padding: 5rem;" width="100%" height="fit-content">
+        <div class="weather-tile">
             <p>${city}</p>
             <div>
                 <p>${day}</p>
                 <p>${month}</p>
             </div>            
-            <img src="http://openweathermap.org/img/wn/${weather}@4x.png" alt="Weather Icon" width="50px" height="50px">
+            <img src="http://openweathermap.org/img/wn/${weather}@4x.png" alt="Weather Icon" width="100px" height="100px">
             <p>${parseInt(temp)}°C</p>
         </div>
     `);
@@ -54,7 +53,7 @@ function populateWeatherDiv(city, day, month, temp, weather) {
 
 function populateEventDiv(array) {    
 
-    $('#eventsContainer').append(`<p>What's on today</p>`);
+    $('#eventsContainer').append(`<p>What's on</p>`);
 
     for (let i = 0; i < array.length; i++) {
         let eventDiv = $(`
@@ -74,7 +73,7 @@ function populateEventDiv(array) {
     }
 
     let moreButton = $(`
-        <div class="row">
+        <div class="row" id="more-link">
         <a class="events-links" target="_blank" href="https://www.ticketmaster.co.uk/search?q=${city}">MORE</a>
         </div>
     `);
@@ -108,7 +107,7 @@ function eventsApiCall(city, yesterdayDate) {
 
             $('#eventsContainer').empty();
             eventsObject = [];
-            $('#eventsContainer').append(`<p>No events for this city <br> Try another one 😊</p>`);
+            $('#eventsContainer').append(`<p id="no-events">No events for this city <br> Try another one 😊</p>`);
 
         } else {
 
@@ -123,9 +122,9 @@ function eventsApiCall(city, yesterdayDate) {
                     }
                     eventsObject.push(event);
                 }            
+                populateEventDiv(eventsObject);
         }
         
-        populateEventDiv(eventsObject);
     });
 }
 
@@ -148,11 +147,11 @@ $('#searchBtn, #searchBtn2').on('click', function(event) {
     city = $('#cityInput').val() == undefined ? $('#cityInput2').val() : $('#cityInput').val();
     if (city.length <= 3) {
         return false;
-    }
+    }   
 
     storeCity(city);
 
-    $(".formulario-top").removeClass("d-none");
+    $("#top-form").removeClass("d-none");
     $('#eventsContainer').empty();
 
     // WEATHER API CALL
@@ -194,7 +193,9 @@ $('#searchBtn, #searchBtn2').on('click', function(event) {
     
             });
         }
-    });
+    });    
+   
+    $('#cityInput, #cityInput2').val('');
 });
 
 // JUMBOTRON BACKGROUND IMAGE
